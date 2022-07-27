@@ -1,0 +1,13 @@
+﻿@using ProductBox
+@using razer_page.Model
+@model List<Product>
+
+
+<ul>
+    @foreach(var item in Model)
+    {
+
+        <li>@item.Name,@item.Description,@item.Price</li>
+      
+    }
+</ul>

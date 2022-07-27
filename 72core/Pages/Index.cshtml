@@ -1,0 +1,48 @@
+﻿@page
+@using _72core.Models
+
+@model IndexModel
+@{
+    Layout = "_SubLayout";
+    ViewData["Title"] = "Home page";
+}
+
+@await Component.InvokeAsync("ProductBox",false);
+@await Html.PartialAsync("_Message")
+
+<form method="post" class="mb-3">
+    <input type="text" />
+    <input type="submit"  value="dang ky"/>
+</form>
+
+<div class="row">
+    @{
+        var product = new List<Product>()
+        {
+        new Product(){Name="iphone",Des="thong tin",Price=1003300},
+        new Product(){Name="iphone2",Des="thong tin",Price=104000},
+        new Product(){Name="iphone3",Des="thong tin",Price=104000},
+        new Product(){Name="iphone4",Des="thong tin",Price=1045000},
+        new Product(){Name="iphone4",Des="thong tin",Price=1045000},
+        new Product(){Name="iphone4",Des="thong tin",Price=1045000},
+        new Product(){Name="iphone4",Des="thong tin",Price=1045000},
+        new Product(){Name="iphone4",Des="thong tin",Price=1045000},
+        };
+
+
+        @foreach (var item in product)
+        {
+            <div class="col-md-3">
+                @await Html.PartialAsync("_Product",item);
+            </div>
+        }
+    }
+</div>
+
+
+
+
+
+
+
+

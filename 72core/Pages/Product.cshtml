@@ -1,0 +1,29 @@
+﻿@page "/Product/{id:int?}";
+@model _72core.Pages.ProductModel
+@{
+    var product = Model.product;
+    var products = Model._productServices.AlLProduct();
+}
+
+<h1>product</h1>
+@if(product != null)
+{
+    <h2>Id : @product.Id</h2>
+    <h2>Ten :@product.Name</h2>
+    <h2>Thong tin :@product.Des</h2>
+    <h2>Gia : @product.Price</h2>
+    <p>
+        <a asp-page="Product" asp-route-id="">Danh sach sp</a>
+    </p>
+}
+else
+{
+    <ul>
+        @foreach(var p in products)
+        {
+            <li>
+                <a asp-page="Product" asp-route-id="@p.Id">@p.Name</a>
+            </li>
+        }
+    </ul>
+}

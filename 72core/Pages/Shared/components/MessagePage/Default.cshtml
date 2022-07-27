@@ -1,0 +1,19 @@
+﻿@model XT.MessagePage.Message
+
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = @Model.Title;
+}
+
+<div class="card m-4">
+    <div class="card-header">
+            @Model.Title
+    </div>
+    <div class="card-body">
+        @Html.Raw(Model.HtmlContent)
+    </div>
+    <div class="card-footer">
+        chuyen den - <a href="@Model.UrlRedict">@Model.UrlRedict</a>
+    </div>
+</div>

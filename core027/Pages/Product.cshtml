@@ -1,0 +1,31 @@
+﻿@page "/sanpham/{id?}"
+@model core027.Pages.ProductModel
+
+@{
+    ViewData["Title"] = "san pham";
+}
+
+
+@{
+    List<Product> products = new List<Product>()
+    {
+        new Product() {Name = "iphone",Description = "day la iphone" , Price=53},
+        new Product() {Name = "samsung",Description = "day la samsung" , Price=5},
+        new Product() {Name = "xaomi",Description = "day la xaomi" , Price=5},
+        new Product() {Name = "oppo",Description = "day la oppo" , Price=5}
+    };
+
+}
+
+<a asp-page="Privacy" >z</a>
+<div class=row>
+
+    @foreach (var product in products)
+    {
+        <div class="col-md-3">
+            @await Html.PartialAsync("_SubProduct",product)
+        </div>
+    }
+</div>
+
+@await Component.InvokeAsync("ProductList");

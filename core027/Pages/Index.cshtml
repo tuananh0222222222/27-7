@@ -1,0 +1,16 @@
+﻿@page "/home/{id:int?}"
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+ 
+}
+
+<a asp-page="product" asp-route-id="3">xem sp</a>
+
+<form>
+
+    <label asp-for="username"></label>
+    <input asp-for="username" />
+    <hr />
+
+</form>

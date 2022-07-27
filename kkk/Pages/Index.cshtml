@@ -1,0 +1,52 @@
+﻿@page
+@model IndexModel
+@using kkk.Model
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+@{
+    List<Category> cate = new List<Category>()
+    {
+        new Category() { Id=1 , Name="dien thoai"},
+        new Category() { Id=2 , Name="Laptop"},
+        new Category() { Id=3 , Name="Tivi"},
+        new Category() { Id=4 , Name="Tu lanh"},
+    };
+}
+
+<form method="post">
+    <label>nhap ten cua ban</label>
+    <input type="text" />
+    <input type="Submit" value="gui" />
+</form>
+
+<p class="bg-info text-white">chuyen du lieu qua partial</p>
+
+<div class="row">
+
+    @foreach (var item in cate)
+    {
+        <div class="col-md-3">
+            @await Html.PartialAsync("_Slide",item)
+        </div>
+
+    }
+
+</div>
+
+<p class="bg-info text-white">chuyen du lieu qua ViewComponent</p>
+
+<div class="row">
+    @await Component.InvokeAsync("ProductBox",false)
+
+ </div>
+
+<input 
+
+
+
+
+
+
